@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+
+import BottomBar from "./Components/Windows/BottomBar";
+import WindowAPP from "./Components/Windows/WindowApp";
 
 function App() {
+  const [appList, setAppList] = useState([{
+    name: "Internet Core",
+    icon: "https://via.placeholder.com/50",
+    onClick: () => {console.log("Internet Core clicked")}
+  }]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='background'>
+      <BottomBar/>
+      <WindowAPP app={appList[0]}/>
     </div>
   );
 }
